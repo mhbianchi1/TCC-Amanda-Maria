@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Relação de Clientes</title>
+    <title>Relação de Perfil de Usuários</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -21,7 +21,7 @@
             <div class="inner">
                 <!-- Header -->
                 <header id="header">
-                    <a href="index.html" class="logo"><strong>Relação de Clientes</strong></a>
+                    <a href="index.html" class="logo"><strong>Relação de Perfil de Usuários</strong></a>
                 </header>
 
                 <div id="search" class="alt" style="margin-top: 30px;">
@@ -36,8 +36,8 @@
                         <thead>
                             <tr>
 
-                                <th>Nome</th>
-                                <th>Celular</th>
+                                <th>ID</th>
+                                <th>Descrição</th>
                                 <th>Excluir</th>
                                 <th>Alterar</th>
                             </tr>
@@ -61,7 +61,7 @@
                             //Comando Cell pega valor quebrado e arredonda para cima
                             $totalPaginas = ceil($con->query($comandoSQL)->rowCount() / $numLinhasPagina);
 
-                            $comandoSQL = "SELECT * FROM clientes LIMIT $pagina, $numLinhasPagina";
+                            $comandoSQL = "SELECT * FROM perfilusuario LIMIT $pagina, $numLinhasPagina";
 
                             $selecionados = $con->query($comandoSQL);
 
@@ -76,10 +76,10 @@
 
                                     <tr>
 
-                                        <td><?php echo $linha["NomeCliente"]; ?></td>
-                                        <td><?php echo $linha["CelularCliente"]; ?></td>
-                                        <td><a href="excluirclientes.php?id=<?php echo $linha["CodCliente"]; ?>"><i class="fas fa-trash text-danger"></i></a></td>
-                                        <td><a href="alterarcliente.php?id=<?php echo $linha["CodCliente"]; ?>"><i class="far fa-check-circle text-success"></i></a></td>
+                                        <td><?php echo $linha["CodPerfil"]; ?></td>
+                                        <td><?php echo $linha["DescricaoPerfil"]; ?></td>
+                                        <td><a href="excluirperfil.php?id=<?php echo $linha["CodPerfil"]; ?>"><i class="fas fa-trash text-danger"></i></a></td>
+                                        <td><a href="alterarperfil.php?id=<?php echo $linha["CodPerfil"]; ?>"><i class="far fa-check-circle text-success"></i></a></td>
                                     </tr>
                             <?php
                                 }

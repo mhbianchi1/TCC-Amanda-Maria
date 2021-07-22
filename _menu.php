@@ -24,8 +24,8 @@
                 <li>
                     <span class="opener">Relatório</span>
                     <ul>
-                        <li><a href="#">Perfil</a></li>
-                        <li><a href="#">Usuário</a></li>
+                        <li><a href="relatorioperfilusuarios.php">Perfil de Usuários</a></li>
+                        <li><a href="relatoriousuarios.php">Usuário</a></li>
                         <li><a href="relatorioclientes.php">Cliente</a></li>
                         <li><a href="#">Produto</a></li>
                         <li><a href="#">Equipamento</a></li>
