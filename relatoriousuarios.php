@@ -46,7 +46,7 @@
 
                             <?php
 
-                            $numLinhasPagina = 100;
+                            $numLinhasPagina = 5;
 
                             if (isset($_GET["pagina"])) {
                                 $pagina = $_GET["pagina"];
@@ -56,7 +56,7 @@
                             }
 
 
-                            $comandoSQL = "SELECT * FROM clientes"; //traz todos os registros do banco de dados
+                            $comandoSQL = "SELECT * FROM usuarios"; //traz todos os registros do banco de dados
 
                             //Comando Cell pega valor quebrado e arredonda para cima
                             $totalPaginas = ceil($con->query($comandoSQL)->rowCount() / $numLinhasPagina);
@@ -64,7 +64,7 @@
                             $comandoSQL = "SELECT u.CodUsuario, u.ApelidoUsuario, p.DescricaoPerfil FROM usuarios u 
                             inner join PerfilUsuario P on u.PerfilUsuario = p.CodPerfil  LIMIT $pagina, $numLinhasPagina";
 
-                            //$comandoSQL2 = "SELECT p.DescricaoPerfil FROM usuarios u inner join PerfilUsuario P on u.PerfilUsuario = p.CodPerfil WHERE CodUsuario";
+                            
 
                             $selecionados = $con->query($comandoSQL);
 
@@ -99,7 +99,7 @@
                         for ($i = 0; $i < $totalPaginas; $i++) {
                         ?>
                             <li> 
-                                <a href="relatoriousuarios.php?pagina=<?php echo $i; ?>"><?php echo $i + 1; ?></a>
+                                <a class="page active" href="relatoriousuarios.php?pagina=<?php echo $i; ?>"><?php echo $i + 1; ?></a>
                             </li>
                         <?php
                         }
